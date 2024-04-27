@@ -1,1 +1,34 @@
-<h1>Hello</h1>
+<html>
+
+<script>
+
+const to = "stanford@stanford.edu"
+
+const subject = "Stand Up for Palestinian Students"
+
+const body = `
+Dear Stanford University Administrators,
+
+It is unacceptable that Palestinian students at Stanford have reported experiences of marginalization, isolation, and harassment, which can significantly impact their academic success and overall well-being. As an institution committed to promoting diversity, equity, and inclusion, I urge you to take concrete steps to address these concerns and create a more welcoming environment for all students.
+
+Furthermore, I strongly believe that Stanford University has a moral obligation to divest from companies that are complicit in human rights violations against the Palestinian people. Israel's occupation of Palestine is widely recognized as a violation of international law and basic human rights principles. By investing in companies that profit from this occupation, Stanford is inadvertently supporting these violations.
+
+I urge you to reconsider your investment portfolio and divest from any companies that are involved in Israeli settlements, military equipment production, or other activities that contribute to the perpetuation of the occupation. This decision would not only align with Stanford's values but also demonstrate a commitment to promoting peace, justice, and human rights globally.
+
+I hope that you will take my concerns seriously and work towards creating a more inclusive and just campus environment for all students. I look forward to hearing about the steps that Stanford University will take to address these critical issues.
+
+Sincerely,
+`
+
+function sendEmail() {    
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+    const mailtoLink = `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
+    window.location.href = mailtoLink;
+}
+sendEmail();
+
+</script>
+
+</html>
+
