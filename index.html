@@ -11,6 +11,10 @@ const subjects = [
     ];
 const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
 
+function capitalizeFirstLetter(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 function randomCapitalization(word) {
     const randomIndex = Math.floor(Math.random() * 3);
     switch (randomIndex) {
