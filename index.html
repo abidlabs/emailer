@@ -2,26 +2,39 @@
 
 <script>
 
-const to = "stanford@stanford.edu"
+const to = "sak18@mit.edu, markg@mit.edu, wespich@mit.edu"
 
-const subject = "Stand Up for Palestinian Students"
+const subjects = [
+        "Stand Up for Palestinian Students",
+        "Regarding the Recent Campus Events",
+        "Concerned Alumnus"
+    ];
+const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
+
+function randomCapitalization(word) {
+    const randomIndex = Math.floor(Math.random() * 3);
+    switch (randomIndex) {
+        case 0:
+            return word.replace(/\b\w/g, char => char.toUpperCase()); // Capitalize each word's first letter
+        case 1:
+            return capitalizeFirstLetter(word); // Capitalize only the first letter of the first word
+        default:
+            return word.toLowerCase(); // Keep everything lowercase
+    }
+}
+
+const formattedSubject = randomSubject.split(" ").map(randomCapitalization).join(" ");
 
 const body = `
-Dear Stanford University Administrators,
+Dear Sally, Mark, and Whitney
 
-It is unacceptable that Palestinian students at Stanford have reported experiences of marginalization, isolation, and harassment, which can significantly impact their academic success and overall well-being. As an institution committed to promoting diversity, equity, and inclusion, I urge you to take concrete steps to address these concerns and create a more welcoming environment for all students.
+I am an MIT alum and I am writing in support of the students at the encampment protest. I strongly urge the administration to continue to engage with the students on their divestment demands. 
 
-Furthermore, I strongly believe that Stanford University has a moral obligation to divest from companies that are complicit in human rights violations against the Palestinian people. Israel's occupation of Palestine is widely recognized as a violation of international law and basic human rights principles. By investing in companies that profit from this occupation, Stanford is inadvertently supporting these violations.
-
-I urge you to reconsider your investment portfolio and divest from any companies that are involved in Israeli settlements, military equipment production, or other activities that contribute to the perpetuation of the occupation. This decision would not only align with Stanford's values but also demonstrate a commitment to promoting peace, justice, and human rights globally.
-
-I hope that you will take my concerns seriously and work towards creating a more inclusive and just campus environment for all students. I look forward to hearing about the steps that Stanford University will take to address these critical issues.
-
-Sincerely,
+I urge the administration against the use of police force, physical violence, or disciplinary punishment against the students.
 `
 
 function sendEmail() {    
-    const encodedSubject = encodeURIComponent(subject);
+    const encodedSubject = encodeURIComponent(formattedSubject);
     const encodedBody = encodeURIComponent(body);
     const mailtoLink = `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
     window.location.href = mailtoLink;
