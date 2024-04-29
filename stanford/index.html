@@ -2,24 +2,26 @@
 
 <script>
 
-const to = "sak18@mit.edu, markg@mit.edu, wespich@mit.edu"
+const to = "president@stanford.edu, vpstudentaffairs@stanford.edu"
 
 const subjects = [
     "Advocating for Palestinian Student Rights",
-    "Discussion on Recent Campus Happenings",
-    "Alumnus Expresses Concerns",
-    "Backing the Encampment Cause",
+    "In Support of the Encampment Cause",
     "Supporting Palestinian Students' Rights",
-    "Addressing Recent Developments on Campus",
-    "Alumnus Shares Concerns",
     "Standing in Solidarity with the Encampment",
-    "Supporting a Safe Campus Environment",
-    "Engaging in Meaningful Discourse",
-    "Supporting Positive Change on Campus",
-    "Stand Up for Palestinian Students",
-    "Regarding the Recent Campus Events",
-    "Concerned Alumnus",
-    "Supporting the Encampment"
+    "Supporting Free Speech on Campus",
+    "Supporting the Encampment",
+    "Supporting an Environment of Free Speech",
+    "Supporting the Encampment Cause",
+    "Supporting the Encampment Movement",
+    "Supporting the Encampment Protest",
+    "In Favor of the Encampment",
+    "Keeping the Encampment Safe",
+    "Don't Use Police Force on the Encampment",
+    "Don't Use Violence on the Encampment",
+    "Don't Use Police Force on Students",
+    "Don't Use Violence on Students",
+    "Don't Use Police Force on Protesters",
 ];
 
 
@@ -35,13 +37,19 @@ function randomCapitalization(word) {
     }
 }
 
-const formattedSubject = randomSubject.split(" ").map(randomCapitalization).join(" ");
+const formattedSubject = randomCapitalization(randomSubject);
 
-const body = `Dear Sally, Mark, and Whitney
+const body = `Dear President Saller,
 
-I am an MIT alum and I am writing in support of the students at the encampment protest. I strongly urge the administration to continue to engage with the students on their divestment demands. 
+I am writing as a very concerned member of the Stanford community to express my support for the students at the encampment protest. I urge the administration to engage with the students on their divestment demands and to refrain from using police force, physical violence, or disciplinary punishment against the students.
 
-I urge the administration against the use of police force, physical violence, or disciplinary punishment against the students.
+I am horrified by the recent reports of police violence against students on some campuses and I urge the administration to take immediate action to ensure the safety and well-being of all students on campus. It would be a tragedy if the situation were to escalate further and result in harm to students.
+
+I urge the administration to listen to the students' concerns and to work with them to find a peaceful resolution to the situation. The students have a right to express their views and to protest peacefully, and it is the administration's responsibility to protect that right.
+
+The situation in Gaza is a humanitarian crisis and it is important for the Stanford community to stand in solidarity with the students who are advocating for Palestinian rights. 
+
+Thank you,
 `
 
 function sendEmail() {    
