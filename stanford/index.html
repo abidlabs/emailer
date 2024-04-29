@@ -1,0 +1,58 @@
+<html>
+
+<script>
+
+const to = "sak18@mit.edu, markg@mit.edu, wespich@mit.edu"
+
+const subjects = [
+    "Advocating for Palestinian Student Rights",
+    "Discussion on Recent Campus Happenings",
+    "Alumnus Expresses Concerns",
+    "Backing the Encampment Cause",
+    "Supporting Palestinian Students' Rights",
+    "Addressing Recent Developments on Campus",
+    "Alumnus Shares Concerns",
+    "Standing in Solidarity with the Encampment",
+    "Supporting a Safe Campus Environment",
+    "Engaging in Meaningful Discourse",
+    "Supporting Positive Change on Campus",
+    "Stand Up for Palestinian Students",
+    "Regarding the Recent Campus Events",
+    "Concerned Alumnus",
+    "Supporting the Encampment"
+];
+
+
+const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
+
+function randomCapitalization(word) {
+    const randomIndex = Math.floor(Math.random() * 2);
+    switch (randomIndex) {
+        case 0:
+            return word
+        default:
+            return word.toLowerCase(); // Keep everything lowercase
+    }
+}
+
+const formattedSubject = randomSubject.split(" ").map(randomCapitalization).join(" ");
+
+const body = `Dear Sally, Mark, and Whitney
+
+I am an MIT alum and I am writing in support of the students at the encampment protest. I strongly urge the administration to continue to engage with the students on their divestment demands. 
+
+I urge the administration against the use of police force, physical violence, or disciplinary punishment against the students.
+`
+
+function sendEmail() {    
+    const encodedSubject = encodeURIComponent(formattedSubject);
+    const encodedBody = encodeURIComponent(body);
+    const mailtoLink = `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
+    window.location.href = mailtoLink;
+}
+sendEmail();
+
+</script>
+
+</html>
+
