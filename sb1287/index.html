@@ -1,0 +1,60 @@
+<html>
+
+<script>
+
+const to = "Lara.maxey@doj.ca.gov"
+
+const subjects = [
+    "Opposing Senate Bill 1287 (SB 1287)",
+    "In Opposition to Senate Bill 1287 (SB 1287)",
+    "Against Senate Bill 1287 (SB 1287)",
+    "In Opposition to SB 1287",
+    "Against SB 1287",
+    "Opposing SB 1287",
+    "In Opposition to the Anti-Free Speech Bill",
+    "Against the Anti-Free Speech Bill",
+    "Opposing the Anti-Free Speech Bill",
+    "In Opposition to the Anti-Free Speech Legislation",
+    "Against the Anti-Free Speech Legislation",
+    "In Favor of Free Speech on Campus",
+    "In Support of Free Speech on Campus",
+    "Supporting Free Speech on Campus",
+    "In Favor of Academic Freedom",
+];
+
+
+const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
+
+function randomCapitalization(word) {
+    const randomIndex = Math.floor(Math.random() * 2);
+    switch (randomIndex) {
+        case 0:
+            return word
+        default:
+            return word.toLowerCase(); // Keep everything lowercase
+    }
+}
+
+const formattedSubject = randomCapitalization(randomSubject);
+
+const body = `Dear Attorney General Rob Bonta -- and Lara Maxey,
+
+I am writing as a constituent to express my OUTRAGE over Senate Bill 1287 (SB 1287) and its potential implications for free speech and academic freedom in California. This bill poses a significant threat to the open exchange of ideas and critical discourse on college campuses.
+
+SB 1287 could severely restrict students' ability to openly discuss crucial issues, including social justice and human rights, which are fundamental to higher education. I urge you to oppose this bill and make a statement in support of free speech and academic freedom in California.
+
+With concern,
+`
+
+function sendEmail() {    
+    const encodedSubject = encodeURIComponent(formattedSubject);
+    const encodedBody = encodeURIComponent(body);
+    const mailtoLink = `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
+    window.location.href = mailtoLink;
+}
+sendEmail();
+
+</script>
+
+</html>
+
